@@ -148,9 +148,7 @@ function CFAHub:CreateWindow(title, gameName, intro)
         Slider = Color3.fromRGB(79, 195, 247),
         Drop = Color3.fromRGB(28, 28, 28),
         ScrollBar = Color3.fromRGB(149, 149, 149),
-        NotiBackground = Color3.fromRGB(0, 0, 0),
-        Glow = Color3.fromRGB(79, 195, 247),
-        Logo = "rbxassetid://7409401226"
+        NotiBackground = Color3.fromRGB(0, 0, 0)
     }
 
     table.insert(CFAHub, title)
@@ -161,32 +159,6 @@ function CFAHub:CreateWindow(title, gameName, intro)
 
     local CFAHubGui = Instance.new("ScreenGui")
 
-    if intro == true then
-        local Logo = Instance.new("ImageLabel")
-        
-        Logo.Parent = CFAHubGui
-        Logo.AnchorPoint = Vector2.new(0.5, 0.5)
-        Logo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        Logo.BackgroundTransparency = 1.000
-        Logo.ImageTransparency = 1
-        Logo.Position = UDim2.new(0.5, 0, 0.6, 0)
-        Logo.Size = UDim2.new(0, 200, 0, 200)
-        Logo.Image = themes.Logo
-
-        Tween:Create(Logo, Tweeninfo(0.5, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut), {
-            Position = UDim2.new(0.5, 0, 0.5, 0),
-            ImageTransparency = 0
-        }):Play()
-        wait(1.5)
-        Tween:Create(Logo, Tweeninfo(0.5, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut), {
-            Position = UDim2.new(0.5, 0, 0.4, 0),
-            ImageTransparency = 1
-        }):Play()
-
-        wait(0.2)
-
-        Logo:Destroy()
-    end
 
     local Container = Instance.new("Frame")
     local UIScale = Instance.new("UIScale")
@@ -198,7 +170,6 @@ function CFAHub:CreateWindow(title, gameName, intro)
     local Header = Instance.new("Frame")
     local HeaderCorner = Instance.new("UICorner")
     local coverup = Instance.new("Frame")
-    local logo = Instance.new("ImageLabel")
     local Title = Instance.new("TextLabel")
 
     local TabFrame = Instance.new("Frame")
@@ -561,16 +532,7 @@ function CFAHub:CreateWindow(title, gameName, intro)
     coverup.Position = UDim2.new(0, 0, 0.758620679, 0)
     coverup.Size = UDim2.new(1, 0, 0, 7)
 
-    logo.Name = "logo"
-    logo.Parent = Header
-    logo.AnchorPoint = Vector2.new(0.5, 0.5)
-    logo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    logo.BackgroundTransparency = 1.000
-    logo.Position = UDim2.new(0.0299999993, 0, 0.5, 0)
-    logo.Size = UDim2.new(0, 25, 0, 25)
-    logo.ZIndex = 2
-    logo.Image = themes.Logo
-    Objects[logo] = "Logo"
+
 
     Title.Name = "Title"
     Title.Parent = Header
@@ -632,8 +594,7 @@ function CFAHub:CreateWindow(title, gameName, intro)
     ShadowBlue.Position = UDim2.new(0.5, 0, 0.5, 0)
     ShadowBlue.Size = UDim2.new(1, 74, 1, 45)
     ShadowBlue.ZIndex = 0
-    ShadowBlue.Image = "http://www.roblox.com/asset/?id=7495863394"
-    ShadowBlue.ImageColor3 = themes.Glow
+    ShadowBlue.Image = ""
     Objects[ShadowBlue] = "Shadow"
 
     coroutine.wrap(function()
@@ -647,7 +608,6 @@ function CFAHub:CreateWindow(title, gameName, intro)
             Title.TextColor3 = themes.TextColor
             TabFrame.BackgroundColor3 = themes.Background
             TabScroll.ScrollBarImageColor3 = themes.ScrollBar
-            ShadowBlue.ImageColor3 = themes.Glow
         end
     end)()
     local Tabs = {}
